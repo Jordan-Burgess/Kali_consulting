@@ -20,16 +20,16 @@ userSchema = new mongoose.Schema({
         required: true,
         minlength: 5,
         maxlength: 255
-    }
-}, timestamp = true)
+    },
+    photo: String, 
+    isAdmin: Boolean
+}, {timestamp : true})
 
 const User = mongoose.model('User', userSchema)
 
 function validateUser(user) {
   const schema = {
-    name: Joi.string().min(5).max(50).required(),
     email: Joi.string().min(5).max(255).required().email(),
-    password: Joi.string().min(5).max(255).required()
   };
 
   return Joi.validate(user, schema);
@@ -37,6 +37,3 @@ function validateUser(user) {
 
 exports.User = User; 
 exports.validate = validateUser;
-
-
-module.exports = User
