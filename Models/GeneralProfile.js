@@ -2,6 +2,8 @@ const mongoose = require('mongoose')
 const hashtags = require('./Hashtags')
 const User = require('./UserModel')
 
+// TODO: Add Reviews Array - Ref ID
+
 const userProfileSchema = new mongoose.Schema({
     hashtags: [{
         type: String,
