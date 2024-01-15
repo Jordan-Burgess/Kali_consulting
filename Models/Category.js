@@ -8,11 +8,9 @@ const categorySchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: Services 
     }],
-    subcategory: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: Category
+    subcategories: [{
+        type: String
     }]
-
 })
 
 const Category = mongoose.model('Category', categorySchema)
