@@ -2,9 +2,9 @@ const mongoose = require('mongoose')
 const hashtags = require('./Hashtags')
 const User = require('./User')
 const Services = require('./Service')
-const Reviews = require('./ReviewModel')
+const Reviews = require('./Review')
 
-const userProfileSchema = new mongoose.Schema({
+const profileSchema = new mongoose.Schema({
     hashtags: [{
         type: String,
         enum: hashtags
@@ -33,6 +33,6 @@ const userProfileSchema = new mongoose.Schema({
 
 })
 
-const UserProfile = mongoose.model('UserProfile', userProfileSchema)
+const Profile = mongoose.model('Profile', profileSchema)
 
-module.exports = UserProfile;
+module.exports = Profile;
