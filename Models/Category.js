@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
 const Services = require('./Service')
-// TODO: Add Services Array of Ref ID - OK
-// TODO: Add subcategory Array or Strings - OK 
 
 const categorySchema = new mongoose.Schema({
     name: String,
