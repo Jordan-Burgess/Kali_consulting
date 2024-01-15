@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 const hashtags = require('./Hashtags')
 const User = require('./User')
-const Services = require('./Service')
-const Reviews = require('./Review')
+const Service = require('./Service')
+const Review = require('./Review')
 
 const profileSchema = new mongoose.Schema({
     hashtags: [{
@@ -23,12 +23,12 @@ const profileSchema = new mongoose.Schema({
         ref: User
     },
     savedServices: [{
-        type: mongooose.Schema.Types.ObjectId,
-        ref: Services
+        type: mongoose.Schema.Types.ObjectId,
+        ref: Service
     }],
     reviews: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: Reviews
+        ref: Review
     }]
 
 })
