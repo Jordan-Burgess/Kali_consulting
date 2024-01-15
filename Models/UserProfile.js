@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const hashtags = require('./Hashtags')
-const User = require('./UserModel')
+const User = require('./User')
 const Services = require('./Service')
 const Reviews = require('./ReviewModel')
 
