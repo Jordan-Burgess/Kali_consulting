@@ -3,8 +3,6 @@ const hashtags = require('./Hashtags')
 const User = require('./UserModel')
 const Services = require('./Service')
 const Reviews = require('./ReviewModel')
-// TODO: Add Reviews Array - Ref ID
-
 
 const userProfileSchema = new mongoose.Schema({
     hashtags: [{
@@ -36,6 +34,5 @@ const userProfileSchema = new mongoose.Schema({
 })
 
 const UserProfile = mongoose.model('UserProfile', userProfileSchema)
-
 
 module.exports = UserProfile;
