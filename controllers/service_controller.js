@@ -20,4 +20,14 @@ router.put('/:id', async (req, res)=>{
     res.json(data)
 })
 
+router.post('/new', async (req, res) => {
+    const data = await Service.create(req.body)
+    res.json(data)
+})
+
+router.delete('/:id', async (req, res) => {
+    const data = await Service.findByIdAndDelete(req.params.id)
+    res.json(data)
+})
+
 module.exports = router
