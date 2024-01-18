@@ -20,7 +20,7 @@ router.get('/:id/services', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
-    const data = await Profile.findByIdAndUpdate(req.params.id, req.body)
+    const data = await Profile.findByIdAndUpdate(req.params.id, req.body, {new: true})
     if (!data) return res.status(404).send("The profile with the given id was not found.")
     res.json(data)
 })

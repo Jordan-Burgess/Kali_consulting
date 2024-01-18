@@ -16,7 +16,7 @@ router.get('/:id', async (req, res)=>{
 })
 
 router.put('/:id', async (req, res)=>{
-    const data = await Service.findByIdAndUpdate(req.params.id, req.body) 
+    const data = await Service.findByIdAndUpdate(req.params.id, req.body, {new: true}) 
     res.json(data)
 })
 
