@@ -8,20 +8,20 @@ router.use(express.json())
 router.get('/:id', async (req, res) => {
     const data = await Profile.findById(req.params.id)
 
-    if (!data) return res.status(400).send("The profile with the given id was not found.")
+    if (!data) return res.status(404).send("The profile with the given id was not found.")
 
     res.json(data)
 })
 
 router.get('/:id/services', async (req, res) => {
     const data = await Profile.findById(req.params.id)
-    if (!data) return res.status(400).send("The profile with the given id was not found.")
+    if (!data) return res.status(404).send("The profile with the given id was not found.")
     res.json(data.savedServices)
 })
 
 router.put('/:id', async (req, res) => {
     const data = await Profile.findByIdAndUpdate(req.params.id, req.body)
-    if (!data) return res.status(400).send("The profile with the given id was not found.")
+    if (!data) return res.status(404).send("The profile with the given id was not found.")
     res.json(data)
 })
 
@@ -32,7 +32,7 @@ router.post('/new', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     const data = await Profile.findByIdAndDelete(req.params.id)
-    if (!data) return res.status(400).send("The profile with the given id was not found.")
+    if (!data) return res.status(404).send("The profile with the given id was not found.")
     res.json(data)
 })
 
