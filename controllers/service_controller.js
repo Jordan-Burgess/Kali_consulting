@@ -12,6 +12,7 @@ router.get('/', async (req, res)=>{
 
 router.get('/:id', async (req, res)=>{
     const data = await Service.findById(req.params.id)
+    const reviews = await data.populate('reviews')
     res.json(data)
 })
 

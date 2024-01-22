@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 const hashtags = require('./Hashtags')
-const Review = require('./Review')
-const Category = require('./Category')
+
 
 const serviceSchema = new mongoose.Schema({
     name: String,
@@ -18,15 +17,15 @@ const serviceSchema = new mongoose.Schema({
     isHidden: Boolean,
     reviews: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: Review
+        ref: 'Review'
     }],
     category: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: Category
+        ref: 'Category'
     },
     subcategory: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: Category
+        ref: 'Category'
     }]
 })
 
