@@ -30,6 +30,12 @@ router.post('/new', async (req, res) => {
     res.json(data)
 })
 
+router.get('/:profileId/reviews', async (req, res) => {
+    const data = await Profile.findById(req.params.profileId).populate('reviews')
+
+    res.json(data)
+})
+
 router.delete('/:id', async (req, res) => {
     const data = await Profile.findByIdAndDelete(req.params.id)
     if (!data) return res.status(404).send("The profile with the given id was not found.")

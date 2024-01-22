@@ -22,12 +22,17 @@ const profileSchema = new mongoose.Schema({
     savedServices: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Service'
-    }],
-    reviews: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Review'
     }]
 
+}, {
+    toJSON: {virtuals: true},
+    toObject: {virtuals: true}
+})
+
+profileSchema.virtual('reviews', {
+    ref: 'Review',
+    localField: '_id',
+    foreignField: 'profile'
 })
 
 const Profile = mongoose.model('Profile', profileSchema)
