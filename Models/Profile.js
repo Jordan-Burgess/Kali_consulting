@@ -1,8 +1,5 @@
 const mongoose = require('mongoose')
 const hashtags = require('./Hashtags')
-const User = require('./User')
-const Service = require('./Service')
-const Review = require('./Review')
 
 const profileSchema = new mongoose.Schema({
     hashtags: [{
@@ -20,17 +17,22 @@ const profileSchema = new mongoose.Schema({
     Language: String, 
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: User
+        ref: 'User'
     },
     savedServices: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: Service
-    }],
-    reviews: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: Review
+        ref: 'Service'
     }]
 
+}, {
+    toJSON: {virtuals: true},
+    toObject: {virtuals: true}
+})
+
+profileSchema.virtual('reviews', {
+    ref: 'Review',
+    localField: '_id',
+    foreignField: 'profile'
 })
 
 const Profile = mongoose.model('Profile', profileSchema)

@@ -1,3 +1,4 @@
+
 const Joi = require('joi')
 const mongoose = require('mongoose')
 
@@ -27,13 +28,13 @@ userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema)
 
-function validateUser(user) {
+/*function validateUser(user) {
   const schema = {
     email: Joi.string().min(5).max(255).required().email(),
   };
 
   return Joi.validate(user, schema);
-}
+}*/
 
 exports.User = User; 
-exports.validate = validateUser;
+//exports.validate = validateUser;

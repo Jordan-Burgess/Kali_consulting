@@ -1,15 +1,13 @@
 const mongoose = require('mongoose')
-const Service = require('./Service')
+
+const subcategories = require('./Subcategories')
 
 const categorySchema = new mongoose.Schema({
     name: String,
     photo: String,
-    services: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: Service
-    }],
     subcategories: [{
-        type: String
+        type: String,
+        enum: subcategories
     }]
 })
 
