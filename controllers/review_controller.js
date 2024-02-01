@@ -14,8 +14,7 @@ router.get('/:id', async (req, res) => {
             res.json(data);
         }
     } catch (err) {
-        console.log(err);
-        res.status(500).json({ error: "An error occurred while processing your request." });
+        res.status(500).json(err);
     }
 });
 
@@ -29,8 +28,7 @@ router.put('/:id', async (req, res) => {
             res.json(data);
         }
     } catch (err) {
-        console.log(err);
-        res.status(500).json({ error: "An error occurred while processing your request." });
+        res.status(500).json(err);
     }
 });
 
@@ -42,8 +40,7 @@ router.post('/:serviceId/:profileId/new', async (req, res) => {
         const data = await Review.create(req.body);
         res.json(data);
     } catch (err) {
-        console.log(err);
-        res.status(500).json({ error: "An error occurred while processing your request." });
+        res.status(500).json(err);
     }
 });
 
@@ -58,8 +55,7 @@ router.delete('/:id/destroy', async (req, res) => {
             res.json(data);
         }
     } catch (err) {
-        console.log(err);
-        res.status(500).json({ error: "An error occurred while processing your request." });
+        res.status(500).json(err);
     }
 });
 
